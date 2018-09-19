@@ -28,21 +28,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        <li>
+                            <a href="{{route('admin.index')}}">Dashboard</a>
+                        </li>
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Music</a>
                           <ul class="dropdown-menu" role="menu">
                             <li><a href="{{route('admin.singer.index')}}">Singers</a></li>
-                            <li><a href="#">Disks</a></li>
+                            <li><a href="{{route('admin.disk.index')}}">Disks</a></li>
                           </ul>
                         </li>
                     </ul>

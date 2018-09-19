@@ -5,31 +5,29 @@
 <div class="container">
 
 	@component('admin.components.breadcrumb')
-	@slot('title') Singers List @endslot
+	@slot('title') Disks List @endslot
 	@slot('parent') Admin @endslot
-	@slot('active') Singers @endslot
+	@slot('active') Disks @endslot
 	@endcomponent
 
 	<hr>
-	<a href="{{route('admin.singer.create')}}" class="btn btn-primary pull-right">
-		<i class="fa fa-plus-square-o"></i> Create Singer
+	<a href="{{route('admin.disk.create')}}" class="btn btn-primary pull-right">
+		<i class="fa fa-plus-square-o"></i> Create Disk
 	</a>
 	<table class="table table-striped">
 		<thead>
 			<th>Name</th>
-			<th>Published</th>
 			<th class="text-right">Action</th>
 		</thead>
 		<tbody>
-			@forelse ($singers as $singer)
+			@forelse ($disks as $disk)
 			<tr>
-				<td>{{$singer->name}}</td>
-				<td>{{$singer->published}}</td>
+				<td>{{$disk->name}}</td>
 				<td class="text-right">
-					<form onsubmit="if(confirm('Delete ?')){return true}else{return false}" action="{{route('admin.singer.destroy',$singer)}}" method="post">
+					<form onsubmit="if(confirm('Delete ?')){return true}else{return false}" action="{{route('admin.disk.destroy',$disk)}}" method="post">
 					<input type="hidden" name="_method" value="DELETE">	
 					{{ csrf_field()}}
-					<a class="btn btn-default" href="{{route('admin.singer.edit', $singer)}}"><i class="fa fa-edit"></i></a>
+					<a class="btn btn-default" href="{{route('admin.disk.edit', $disk)}}"><i class="fa fa-edit"></i></a>
 					<button type="submit" class="btn"><i class="fa fa-trash-o"></i></button>
 					</form>
 				</td>
@@ -44,7 +42,7 @@
 			<tr>
 				<td colspan="3">
 					<ul class="pagination pull-right">
-						{{$singers->links()}}
+						{{$disks->links()}}
 					</ul>
 				</td>
 			</tr>

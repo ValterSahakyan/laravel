@@ -15,7 +15,6 @@ class SingerController extends Controller
      */
     public function index()
     {
-        //
         return view('admin.singers.index', [
               'singers' => Singer::paginate(10)
            ]);
@@ -28,7 +27,6 @@ class SingerController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.singers.create', [
               'singer'   => [],
               'singers' => Singer::get(),
@@ -44,7 +42,6 @@ class SingerController extends Controller
      */
     public function store(Request $request)
     {
-        //
            Singer::create($request->all());
            return redirect()->route('admin.singer.index');
     }
@@ -68,7 +65,11 @@ class SingerController extends Controller
      */
     public function edit(Singer $singer)
     {
-        //
+        return view('admin.singers.edit', [
+              'singer'   => $singer,
+              'singers' => Singer::get(),
+              'delimiter'  => ''
+           ]);
     }
 
     /**
@@ -80,7 +81,9 @@ class SingerController extends Controller
      */
     public function update(Request $request, Singer $singer)
     {
-        //
+        $singer->update($request->all());
+        return redirect()->route('admin.singer.index');
+
     }
 
     /**
@@ -91,6 +94,7 @@ class SingerController extends Controller
      */
     public function destroy(Singer $singer)
     {
-        //
+        $singer->delete();
+        return redirect()->route('admin.singer.index');
     }
 }

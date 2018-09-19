@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDisksTable extends Migration
+class CreateSingeryableTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateDisksTable extends Migration
      */
     public function up()
     {
-        Schema::create('disks', function (Blueprint $table) {
+        Schema::create('singeryables', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('created_by')->nullable();
-            $table->integer('modified_by')->nullable();
+            $table->integer('singer_id'); 
+            $table->integer('singeryable_id'); 
+            $table->string('singeryable_type'); 
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateDisksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disks');
+        Schema::dropIfExists('singeryables');
     }
 }

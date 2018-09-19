@@ -5,14 +5,15 @@
 <div class="container">
 
   @component('admin.components.breadcrumb')
-    @slot('title')Create Singer @endslot
+    @slot('title') Edit Singer @endslot
     @slot('parent') Admin @endslot
     @slot('active') Singers @endslot
   @endcomponent
 
   <hr />
 
-  <form class="form-horizontal" action="{{route('admin.singer.store')}}" method="post">
+  <form class="form-horizontal" action="{{route('admin.singer.update',$singer)}}" method="post">
+    <input type="hidden" name="_method" value="put">
     {{ csrf_field() }}
 
     {{-- Form include --}}
